@@ -18,21 +18,21 @@ const Signup = () => {
           <form className="space-y-4">
             <div>
               <label className="label font-medium">Name</label>
-              <input type="text" className="input input-bordered w-full" placeholder="Your full name" />
+              <input type="text" name='name' className="input input-bordered w-full" placeholder="Your full name" />
             </div>
             <div>
               <label className="label font-medium">Email</label>
-              <input type="email" className="input input-bordered w-full" placeholder="you@example.com" />
+              <input type="email" name='email' className="input input-bordered w-full" placeholder="you@example.com" />
             </div>
             <div>
               <label className="label font-medium">Photo URL</label>
-              <input type="url" className="input input-bordered w-full" placeholder="https://example.com/photo.jpg" />
+              <input type="url" name='photo_url' className="input input-bordered w-full" placeholder="https://example.com/photo.jpg" />
             </div>
             <div>
               <label className="label font-medium">Password</label>
-              <input type="password" className="input input-bordered w-full" placeholder="Your secure password" />
+              <input type="password" name='password' className="input input-bordered w-full" placeholder="Your secure password" />
             </div>
-            <button className="btn btn-primary w-full mt-2">Sign Up</button>
+            <button className="btn btn-primary text-white w-full mt-2">Sign Up</button>
             <p className="text-center text-sm mt-2">Already have an account?
               <a href="/login" className="link link-primary ml-1">Login here</a>
             </p>

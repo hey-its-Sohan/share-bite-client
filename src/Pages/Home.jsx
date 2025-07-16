@@ -3,6 +3,7 @@ import React from 'react';
 import { Outlet } from 'react-router';
 
 import Banner from '../Components/Banner';
+import Featured from '../Components/Featured';
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
 
 
       <Banner></Banner>
+      <Featured></Featured>
 
     </div>
   );

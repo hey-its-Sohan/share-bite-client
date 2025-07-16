@@ -30,11 +30,12 @@ const Navbar = () => {
           </div>
           <div className="navbar-center hidden lg:flex" >
             <ul className="menu menu-horizontal px-1 flex gap-4">
-              <li className='text-lg '>Home</li>
-              <li className='text-lg '>Available Foods</li>
-              <li className='text-lg '>Add Food</li>
-              <li className='text-lg '>Manage Foods</li>
-              <li className='text-lg '>My Request</li>
+              <NavLink to={'/'}><li className='text-lg '>Home</li></NavLink>
+              <NavLink to={'/available-foods'}><li className='text-lg '>Available Foods</li></NavLink>
+              <NavLink to={'/add-food'}><li className='text-lg '>Add Food</li></NavLink>
+              <NavLink to={'/manage-foods'}><li className='text-lg '>Manage Foods</li></NavLink>
+              <NavLink to={"/requested-food"}><li className='text-lg '>My Request</li></NavLink>
+
             </ul>
           </div>
           <div className="navbar-end">
