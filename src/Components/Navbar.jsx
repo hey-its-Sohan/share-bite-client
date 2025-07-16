@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/logo1.png'
+import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
   return (
@@ -14,9 +15,11 @@ const Navbar = () => {
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li>Item 1</li>
-                <li>Parent</li>
-                <li>Item 3</li>
+                <li className='text-lg '>Home</li>
+                <li className='text-lg '>Available Foods</li>
+                <li className='text-lg '>Add Food</li>
+                <li className='text-lg '>Manage Foods</li>
+                <li className='text-lg '>My Request</li>
               </ul>
             </div>
             <div>
@@ -26,15 +29,17 @@ const Navbar = () => {
             </div>
           </div>
           <div className="navbar-center hidden lg:flex" >
-            <ul className="menu menu-horizontal px-1 flex gap-3">
-              <li className='text-xl '>Item 1</li>
-              <li className='text-xl '>Parent</li>
-              <li className='text-xl '>Item 3</li>
+            <ul className="menu menu-horizontal px-1 flex gap-4">
+              <li className='text-lg '>Home</li>
+              <li className='text-lg '>Available Foods</li>
+              <li className='text-lg '>Add Food</li>
+              <li className='text-lg '>Manage Foods</li>
+              <li className='text-lg '>My Request</li>
             </ul>
           </div>
           <div className="navbar-end">
-            <button className='btn bg-secondary mr-2'>Login</button>
-            <button className='btn bg-[#AED581]'>Sign Up</button>
+            <NavLink to={'/login'}><button className='btn bg-secondary mr-2'>Login</button></NavLink>
+            <NavLink to={'/sign-up'}><button className='btn bg-[#AED581]'>Sign Up</button></NavLink>
           </div>
         </div>
       </div>
