@@ -5,7 +5,7 @@ import banner2 from '../assets/banner2.jpg'; // Optional second image
 
 const Banner = () => {
   return (
-    <div className="max-w-screen-xl mx-auto  py-10">
+    <div className="max-w-screen-xl mx-auto px-5 lg:px-0  py-10">
       <div className="flex flex-col-reverse lg:flex-row items-center ">
 
         {/* Left: Text Section */}
@@ -18,10 +18,10 @@ const Banner = () => {
           <h1 className="text-4xl lg:text-5xl font-bold text-dark mb-4">
             Share Surplus. Spread Kindness.
           </h1>
-          <p className="text-gray-600 text-lg max-w-md">
+          <p className="text-dark text-lg max-w-md">
             Join our food-sharing movement and help reduce waste in your community. One plate at a time, one person at a time.
           </p>
-          <button className="btn btn-primary mt-6">Get Started</button>
+          <button className="btn btn-primary mt-6 text-white">Get Started</button>
         </motion.div>
 
         {/* Right: Floating Animated Images */}

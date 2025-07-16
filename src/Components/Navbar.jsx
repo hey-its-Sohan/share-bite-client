@@ -15,32 +15,44 @@ const Navbar = () => {
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li className='text-lg '>Home</li>
-                <li className='text-lg '>Available Foods</li>
-                <li className='text-lg '>Add Food</li>
-                <li className='text-lg '>Manage Foods</li>
-                <li className='text-lg '>My Request</li>
+                <NavLink to={'/'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+                }><li className='text-lg px-2'>Home</li></NavLink>
+                <NavLink to={'/available-foods'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+                }><li className='text-lg px-2'>Available Foods</li></NavLink>
+                <NavLink to={'/add-food'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+                }><li className='text-lg px-2'>Add Food</li></NavLink>
+                <NavLink to={'/manage-food'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+                }><li className='text-lg px-2'>Manage Foods</li></NavLink>
+                <NavLink to={"/requested-food"} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+                }><li className='text-lg px-2'>My Request</li></NavLink>
               </ul>
             </div>
             <div>
-              <img
-                className='w-48'
-                src={logo} alt="" />
+              <NavLink to={'/'}>
+                <img
+                  className='w-48'
+                  src={logo} alt="" />
+              </NavLink>
             </div>
           </div>
           <div className="navbar-center hidden lg:flex" >
             <ul className="menu menu-horizontal px-1 flex gap-4">
-              <NavLink to={'/'}><li className='text-lg '>Home</li></NavLink>
-              <NavLink to={'/available-foods'}><li className='text-lg '>Available Foods</li></NavLink>
-              <NavLink to={'/add-food'}><li className='text-lg '>Add Food</li></NavLink>
-              <NavLink to={'/manage-foods'}><li className='text-lg '>Manage Foods</li></NavLink>
-              <NavLink to={"/requested-food"}><li className='text-lg '>My Request</li></NavLink>
+              <NavLink to={'/'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+              }><li className='text-lg '>Home</li></NavLink>
+              <NavLink to={'/available-foods'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+              }><li className='text-lg '>Available Foods</li></NavLink>
+              <NavLink to={'/add-food'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+              }><li className='text-lg '>Add Food</li></NavLink>
+              <NavLink to={'/manage-food'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+              }><li className='text-lg '>Manage Foods</li></NavLink>
+              <NavLink to={"/requested-food"} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+              }><li className='text-lg '>My Request</li></NavLink>
 
             </ul>
           </div>
           <div className="navbar-end">
-            <NavLink to={'/login'}><button className='btn bg-secondary mr-2'>Login</button></NavLink>
-            <NavLink to={'/sign-up'}><button className='btn bg-[#AED581]'>Sign Up</button></NavLink>
+            <NavLink to={'/login'}><button className='btn btn-primary text-white mr-2'>Login</button></NavLink>
+            <NavLink to={'/sign-up'}><button className='btn text-white hover:bg-[#9dc66e] bg-[#a9d872]'>Sign Up</button></NavLink>
           </div>
         </div>
       </div>

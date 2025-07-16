@@ -4,6 +4,8 @@ import { Outlet } from 'react-router';
 
 import Banner from '../Components/Banner';
 import Featured from '../Components/Featured';
+import Works from '../Components/Works';
+import Testimonials from '../Components/Testimonials';
 
 const Home = () => {
   return (
@@ -12,6 +14,8 @@ const Home = () => {
 
       <Banner></Banner>
       <Featured></Featured>
+      <Works></Works>
+      <Testimonials></Testimonials>
 
     </div>
   );
