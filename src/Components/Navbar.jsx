@@ -33,8 +33,8 @@ const Navbar = () => {
                 }><li className='text-lg px-2'>Available Foods</li></NavLink>
                 <NavLink to={'/add-food'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
                 }><li className='text-lg px-2'>Add Food</li></NavLink>
-                <NavLink to={'/manage-food'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
-                }><li className='text-lg px-2'>Manage Foods</li></NavLink>
+                <NavLink to={'/my-foods'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+                }><li className='text-lg px-2'>My Foods</li></NavLink>
                 <NavLink to={"/requested-food"} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
                 }><li className='text-lg px-2'>My Request</li></NavLink>
               </ul>
@@ -55,21 +55,22 @@ const Navbar = () => {
               }><li className='text-lg '>Available Foods</li></NavLink>
               <NavLink to={'/add-food'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
               }><li className='text-lg '>Add Food</li></NavLink>
-              <NavLink to={'/manage-food'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
-              }><li className='text-lg '>Manage Foods</li></NavLink>
+              <NavLink to={'/my-foods'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+              }><li className='text-lg '>My Foods</li></NavLink>
               <NavLink to={"/requested-food"} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
               }><li className='text-lg '>My Request</li></NavLink>
 
             </ul>
           </div>
           {
-            user ? <div className='flex items-center'>
+            user ? <div className='flex items-center navbar-end'>
               <button onClick={handleSignOut} className='btn btn-primary text-white mr-2'>Logout</button>
-              <div className="w-12 ">
-                <img
-                  className='rounded-full'
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              <div className='avatar'>
+                <div className="w-12 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src={user.photoURL} />
+                </div>
               </div>
             </div> : <div className="navbar-end">
               <NavLink to={'/login'}><button className='btn btn-primary text-white mr-2'>Login</button></NavLink>

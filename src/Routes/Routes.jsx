@@ -9,9 +9,11 @@ import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import AddFood from "../Pages/AddFood";
 import AvailableFoods from "../Pages/AvailableFoods";
-import ManageFoods from "../Pages/ManageFoods";
 import UpdateFoods from "../Pages/UpdateFoods";
 import FoodRequests from "../Pages/FoodRequests";
+import FoodDetails from "../Pages/FoodDetails";
+import axios from "axios";
+import MyFoods from "../Pages/MyFoods";
 
 export const router = createBrowserRouter([
   {
@@ -33,8 +35,16 @@ export const router = createBrowserRouter([
         Component: AddFood,
       },
       {
-        path: "/manage-food",
-        Component: ManageFoods,
+        path: "/food-details/:id",
+        Component: FoodDetails,
+        loader: async ({ params }) => {
+          const { data } = await axios.get(`http://localhost:3000/food-details/${params.id}`)
+          return data;
+        }
+      },
+      {
+        path: "/my-foods",
+        Component: MyFoods,
       },
       {
         path: "/requested-food",

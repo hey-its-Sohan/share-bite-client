@@ -1,6 +1,38 @@
-import React from 'react';
+import axios from 'axios';
+import React, { use } from 'react';
+import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../Contexts/AuthContext';
 
 const AddFood = () => {
+  const { user } = use(AuthContext)
+
+  const handleAddFood = e => {
+    e.preventDefault()
+    const form = e.target;
+    const formData = new FormData(form);
+    const addFood = Object.fromEntries(formData.entries());
+    addFood.quantity = parseInt(addFood.quantity);
+
+    // send data to database
+    axios.post("http://localhost:3000/add-food", addFood)
+      .then(res => {
+        if (res.data.insertedId || res.data.acknowledged) {
+          Swal.fire({
+            title: "Food Added Successfully!",
+            icon: "success",
+            draggable: true
+          });
+          form.reset();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error("Failed to add food.");
+      });
+
+  }
+
   return (
     <div className='bg-gray-100 py-7'>
       <div className="max-w-screen-xl mx-auto my-10 bg-white shadow-md p-7">
@@ -9,11 +41,11 @@ const AddFood = () => {
           <p className="text-gray-600">Fill out the form below to share surplus food with the community.</p>
         </div>
 
-        <form className="space-y-6">
+        <form onSubmit={handleAddFood} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="form-control">
               <label className="label font-medium">Food Name</label>
-              <input type="text" name="name" className="input input-bordered w-full" placeholder="Enter Food Name" />
+              <input type="text" name="food_name" className="input input-bordered w-full" placeholder="Enter Food Name" />
             </div>
 
             <div className="form-control">
@@ -52,21 +84,18 @@ const AddFood = () => {
 
             <div className="form-control">
               <label className="label font-medium">Donor Name</label>
-              <input type="text" name="donor_name" className="input input-bordered w-full" placeholder="Your Name" />
+              <input type="text" name="name" className="input input-bordered w-full" placeholder="Your Name" readOnly defaultValue={user.displayName} />
             </div>
 
             <div className="form-control">
               <label className="label font-medium">Donor Email</label>
-              <input type="email" name="email" className="input input-bordered w-full" placeholder="Your Email" />
+              <input readOnly type="email" name="email" className="input input-bordered w-full" placeholder="Your Email" defaultValue={user.email} />
             </div>
             <div className="form-control">
               <label className="label font-medium">Donor Image URL</label>
-              <input type="text" name="donor_img" className="input input-bordered w-full" placeholder="Profile Photo URL" />
+              <input type="text" name="photo" className="input input-bordered w-full" placeholder="Profile Photo URL" readOnly defaultValue={user.photoURL} />
             </div>
           </div>
-
-
-
           <button type="submit" className="btn btn-primary w-full mt-6 text-white text-lg">
             Add Food
           </button>
