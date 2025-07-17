@@ -23,7 +23,7 @@ const UpdateFoods = () => {
 
             <div className="form-control">
               <label className="label font-medium">Food Quantity</label>
-              <input type="text" name="quantity" className="input input-bordered w-full" placeholder="e.g. 5 Plates" />
+              <input type="text" name="quantity" className="input input-bordered w-full" placeholder="No. of Quantity" />
             </div>
 
             <div className="form-control">

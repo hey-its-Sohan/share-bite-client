@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { use } from 'react';
 import logo from '../assets/logo1.png'
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Contexts/AuthContext';
 
 const Navbar = () => {
+  const { user, signOutUser } = use(AuthContext)
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+      })
+      .catch(error => {
+        console.log(error.message);
+      })
+  }
+
   return (
     <div className='bg-white'>
       <div className='max-w-screen-xl mx-auto'>
@@ -50,10 +62,22 @@ const Navbar = () => {
 
             </ul>
           </div>
-          <div className="navbar-end">
-            <NavLink to={'/login'}><button className='btn btn-primary text-white mr-2'>Login</button></NavLink>
-            <NavLink to={'/sign-up'}><button className='btn text-white hover:bg-[#9dc66e] bg-[#a9d872]'>Sign Up</button></NavLink>
-          </div>
+          {
+            user ? <div className='flex items-center'>
+              <button onClick={handleSignOut} className='btn btn-primary text-white mr-2'>Logout</button>
+              <div className="w-12 ">
+                <img
+                  className='rounded-full'
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              </div>
+            </div> : <div className="navbar-end">
+              <NavLink to={'/login'}><button className='btn btn-primary text-white mr-2'>Login</button></NavLink>
+              <NavLink to={'/sign-up'}><button className='btn text-white hover:bg-[#9dc66e] bg-[#a9d872]'>Sign Up</button></NavLink>
+            </div>
+          }
+
+
         </div>
       </div>
     </div>

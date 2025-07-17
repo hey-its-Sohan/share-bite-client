@@ -1,8 +1,48 @@
-import React from 'react';
+import React, { use } from 'react';
 import Lottie from "lottie-react";
 import LoginAnimation from "../assets/Animations/login page.json";
+import { AuthContext } from '../Contexts/AuthContext';
+import { useLocation, useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+
+  const { signInUser, googleSignIn } = use(AuthContext)
+  // const navigate = useNavigate();
+  // const location = useLocation();
+
+  const handleSignIn = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const formData = new FormData(form)
+    const { email, password } = Object.fromEntries(formData.entries())
+
+    // sign in
+    signInUser(email, password)
+      .then(result => {
+        toast.success('Login Successfully.')
+        // navigate(location?.state || '/')
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log("Error signing up:", error.code, error.message);
+        // ..
+      });
+  }
+
+  // google sign in
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then(result => {
+        toast.success('Login Successfull!')
+        // navigate(location?.state || '/')
+        console.log(result);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center px-4">
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-10 bg-white shadow-xl rounded-2xl overflow-hidden">
@@ -15,7 +55,7 @@ const Login = () => {
         {/* Form Section */}
         <div className="p-8">
           <h2 className="text-3xl font-bold text-center text-dark mb-6">Welcome Back 👋</h2>
-          <form className="space-y-4">
+          <form onSubmit={handleSignIn} className="space-y-4">
             <div>
               <label className="label font-medium">Email</label>
               <input type="email" name='email' className="input input-bordered w-full" placeholder="Enter your email" />
@@ -29,7 +69,7 @@ const Login = () => {
             </div>
             <button className="btn btn-primary text-white w-full mt-2">Login</button>
             <div className="divider text-sm text-slate-400 my-4">Or</div>
-            <button className="btn w-full btn-outline btn-primary flex items-center justify-center gap-2 ">
+            <button onClick={handleGoogleLogin} className="btn w-full btn-outline btn-primary flex items-center justify-center gap-2 ">
               <svg aria-label="Google logo" width="26" height="26" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
               Login with Google
             </button>
