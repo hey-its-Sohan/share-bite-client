@@ -1,12 +1,21 @@
 import React, { use } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
+import axios from 'axios';
 
 
 const FoodDetails = () => {
 
   const { user } = use(AuthContext)
   const food = useLoaderData()
+
+  const handleRequest = () => {
+    axios.patch(`http://localhost:3000/requested-food/${food._id}`, {}, {
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`
+      }
+    })
+  }
 
   return (
     <div className='bg-gray-100 py-16'>
@@ -52,7 +61,7 @@ const FoodDetails = () => {
                 // onChange={(e) => setNote(e.target.value)}
                 ></textarea>
                 <div className="modal-action">
-                  <label htmlFor="request-modal" className="btn" >Request</label>
+                  <label htmlFor="request-modal" className="btn" onClick={handleRequest} >Request</label>
                   <label htmlFor="request-modal" className="btn btn-outline">Cancel</label>
                 </div>
               </div>

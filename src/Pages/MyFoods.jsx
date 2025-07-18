@@ -29,6 +29,7 @@ const MyFoods = () => {
           <table className="table  ">
             <thead className="bg-white text-lg ">
               <tr className='border-primary'>
+                <th></th>
                 <th className="text-left text-primary">Food Name</th>
                 <th className="text-left text-primary">Quantity</th>
                 <th className="text-left text-primary">Location</th>
@@ -38,7 +39,8 @@ const MyFoods = () => {
             <tbody className=' bg-white'>
               {myFoods.map(food => (
                 <tr key={food._id} className="hover:bg-base-100 ">
-                  <td>{food.name}</td>
+                  <td><img className="size-12 rounded-box" src={food.food_image} /></td>
+                  <td>{food.food_name}</td>
                   <td>{food.quantity}</td>
                   <td>{food.location}</td>
                   <td>
