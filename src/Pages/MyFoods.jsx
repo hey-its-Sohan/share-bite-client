@@ -2,7 +2,7 @@ import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import axios from 'axios';
 import { Pencil, Trash2 } from 'lucide-react';
-import { div } from 'framer-motion/client';
+
 
 const MyFoods = () => {
   const { user, loading } = use(AuthContext);

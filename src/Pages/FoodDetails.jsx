@@ -1,20 +1,42 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 const FoodDetails = () => {
 
   const { user } = use(AuthContext)
   const food = useLoaderData()
+  const [note, setNote] = useState("");
+  const [isRequested, setIsRequested] = useState(false);
 
   const handleRequest = () => {
-    axios.patch(`http://localhost:3000/requested-food/${food._id}`, {}, {
+    const requestData = {
+      ...food,
+      userEmail: user.email,
+      request_date: new Date().toLocaleString(),
+      availability: "Requested",
+      notes: note
+    }
+    axios.post(`http://localhost:3000/requested-food`, requestData, {
       headers: {
         Authorization: `Bearer ${user.accessToken}`
       }
     })
+
+    // axios.patch(`http://localhost:3000/update-availability/${food._id}`, {
+    //   notes: note,
+    //   availability: "Requested",
+    // }, {
+    //   headers: {
+    //     Authorization: `Bearer ${user.accessToken}`
+    //   }
+    // });
+
+    toast.success("Food requested successfully!");
+    setIsRequested(true);
   }
 
   return (
@@ -37,7 +59,11 @@ const FoodDetails = () => {
             <p className="text-gray-600 italic text-lg">{food.notes}</p>
 
             {/* Request Modal Trigger */}
-            <label htmlFor="request-modal" className="btn text-white btn-primary mt-4">Request Food</label>
+            {isRequested ? (
+              <button className="btn btn-success mt-4" disabled>Requested</button>
+            ) : (
+              <label htmlFor="request-modal" className="btn btn-primary mt-4">Request Food</label>
+            )}
 
             {/* Modal */}
             <input type="checkbox" id="request-modal" className="modal-toggle" />
@@ -57,8 +83,8 @@ const FoodDetails = () => {
                 <textarea
                   className="textarea textarea-bordered w-full mt-4"
                   placeholder="Additional Notes"
-                // value={note}
-                // onChange={(e) => setNote(e.target.value)}
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
                 ></textarea>
                 <div className="modal-action">
                   <label htmlFor="request-modal" className="btn" onClick={handleRequest} >Request</label>
