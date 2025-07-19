@@ -1,9 +1,16 @@
 import React from 'react';
+import errorAnimation from '.././assets/Animations/Lonely 404.json'
+import Lottie from 'lottie-react';
 
 const Error = () => {
   return (
-    <div>
-      <h1 className='text-5xl text-primary'>this is error page</h1>
+    <div className='mx-auto max-w-screen-xl flex min-h-screen'>
+      <Lottie
+        animationData={errorAnimation}
+        loop={true}
+        className='md:w-1/2 mx-auto'
+      />
+
     </div>
   );
 };

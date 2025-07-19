@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/logo11.png';
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -48,9 +48,9 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3 text-black">Stay Connected</h3>
           <div className="flex gap-4 mb-4">
-            <a href="#" className="hover:text-blue-600 transition"><Facebook size={24} /></a>
-            <a href="#" className="hover:text-sky-500 transition"><Twitter size={24} /></a>
-            <a href="#" className="hover:text-pink-500 transition"><Instagram size={24} /></a>
+            <a href="https://www.facebook.com/mahmudul.islam.sohan.2025/" className="hover:text-primary  transition"><Facebook size={24} /></a>
+            <a href="https://www.linkedin.com/in/mahmudul-islam-sohan/" className="hover:text-primary transition"><Linkedin size={24} /></a>
+            <a href="https://github.com/hey-its-Sohan" className="hover:text-primary  transition"><Github size={24} /></a>
           </div>
           <p className="text-sm text-gray-500">
             Join our mission to fight hunger and reduce waste. #ShareTheBite

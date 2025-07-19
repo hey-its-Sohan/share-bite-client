@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import logo from '../assets/logo1.png'
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
+import userProfile from '../assets/userProfile.png';
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext)
@@ -68,8 +69,8 @@ const Navbar = () => {
               <div className='avatar'>
                 <div className="w-12 rounded-full">
                   <img
-                    alt="Tailwind CSS Navbar component"
-                    src={user.photoURL} />
+                    alt="User Profile IMG"
+                    src={user.photoURL || userProfile} />
                 </div>
               </div>
             </div> : <div className="navbar-end">
