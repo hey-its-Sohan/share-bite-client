@@ -14,6 +14,7 @@ import FoodRequests from "../Pages/FoodRequests";
 import FoodDetails from "../Pages/FoodDetails";
 import axios from "axios";
 import MyFoods from "../Pages/MyFoods";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -32,11 +33,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/add-food",
-        Component: AddFood,
+        element: <PrivateRoutes><AddFood></AddFood></PrivateRoutes>
       },
       {
         path: "/food-details/:id",
         Component: FoodDetails,
+        hydrateFallbackElement: <div className='max-w-screen-xl mx-auto text-primary text-center my-[400px]'><span className="loading loading-dots loading-xl"></span></div>,
         loader: async ({ params }) => {
           const { data } = await axios.get(`http://localhost:3000/food-details/${params.id}`)
           return data;
@@ -44,15 +46,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-foods",
-        Component: MyFoods,
+        element: <PrivateRoutes><MyFoods></MyFoods></PrivateRoutes>
       },
       {
         path: "/requested-food",
-        Component: FoodRequests,
+        element: <PrivateRoutes><FoodRequests></FoodRequests></PrivateRoutes>
       },
       {
         path: "/update-food/:id",
         Component: UpdateFoods,
+        hydrateFallbackElement: <div className='max-w-screen-xl text-primary mx-auto text-center my-[400px]'><span className="loading loading-dots loading-xl"></span></div>,
         loader: async ({ params }) => {
           const { data } = await axios.get(`http://localhost:3000/food-details/${params.id}`)
           return data;

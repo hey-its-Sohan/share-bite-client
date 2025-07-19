@@ -9,7 +9,7 @@ const FoodCard = ({ food }) => {
   return (
     <div className="card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition-all">
       <figure>
-        <img src={food_image} alt={name} className="w-full skeleton h-56 object-cover" />
+        <img src={food_image} alt={name} className="w-full  h-56 object-cover" />
       </figure>
       <div className="card-body space-y-2">
         <h2 className="card-title text-dark text-lg">{food_name}</h2>

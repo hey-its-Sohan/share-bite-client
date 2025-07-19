@@ -62,7 +62,7 @@ const FoodDetails = () => {
             {isRequested ? (
               <button className="btn btn-success mt-4" disabled>Requested</button>
             ) : (
-              <label htmlFor="request-modal" className="btn btn-primary mt-4">Request Food</label>
+              <label htmlFor="request-modal" className="btn btn-primary text-white mt-4">Request Food</label>
             )}
 
             {/* Modal */}

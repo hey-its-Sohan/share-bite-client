@@ -8,8 +8,8 @@ import { toast } from 'react-toastify';
 const Login = () => {
 
   const { signInUser, googleSignIn } = use(AuthContext)
-  // const navigate = useNavigate();
-  // const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSignIn = (e) => {
     e.preventDefault()
@@ -21,7 +21,7 @@ const Login = () => {
     signInUser(email, password)
       .then(result => {
         toast.success('Login Successfully.')
-        // navigate(location?.state || '/')
+        navigate(location?.state || '/')
         console.log(result.user);
       })
       .catch((error) => {
@@ -35,7 +35,7 @@ const Login = () => {
     googleSignIn()
       .then(result => {
         toast.success('Login Successfull!')
-        // navigate(location?.state || '/')
+        navigate(location?.state || '/')
         console.log(result);
       })
       .catch(error => {

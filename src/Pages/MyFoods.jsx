@@ -64,10 +64,11 @@ const MyFoods = () => {
 
 
   return (
-    <div className='bg-gray-100'>
+    <div className='bg-gray-100 min-h-screen'>
       <div className="max-w-screen-xl mx-auto px-5 lg:px-0 py-10 ">
         <h2 className="text-4xl lg:text-5xl font-bold text-dark mb-10 ">My Shared Foods</h2>
-        <div className="overflow-x-auto border border-primary rounded-box shadow-md mb-20">
+
+        {myFoods.length > 0 ? <div className="overflow-x-auto border border-primary rounded-box shadow-md mb-20">
           <table className="table  ">
             <thead className="bg-white text-lg ">
               <tr className='border-primary'>
@@ -101,7 +102,11 @@ const MyFoods = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </div> :
+          <div className='text-accent text-2xl'>No shared food found</div>
+        }
+
+
       </div>
     </div>
   );

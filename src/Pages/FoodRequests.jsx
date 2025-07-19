@@ -3,6 +3,7 @@ import { AuthContext } from '../Contexts/AuthContext';
 import axios from 'axios';
 import { Clock3, MapPin, CalendarDays, User } from 'lucide-react';
 
+
 const FoodRequests = () => {
   const { user, loading } = use(AuthContext);
   const [requests, setRequests] = useState([]);
@@ -22,8 +23,9 @@ const FoodRequests = () => {
   return (
     <div className="bg-gray-100 py-10 min-h-screen">
       <div className="max-w-screen-xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-10 text-dark">My Food Requests</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <h2 className="text-4xl font-bold  mb-10 text-dark">My Food Requests</h2>
+
+        {requests.length > 0 ? <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {requests.map((req, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-primary">
               <h3 className="text-2xl font-semibold text-primary mb-2">{req.food_name}</h3>
@@ -47,7 +49,12 @@ const FoodRequests = () => {
               )}
             </div>
           ))}
-        </div>
+        </div> :
+          <div>
+            <h1 className='text-accent text-2xl'>No request found</h1>
+          </div>}
+
+
       </div>
     </div>
   );

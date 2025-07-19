@@ -3,11 +3,14 @@ import Lottie from "lottie-react";
 import SignupAnimation from "../assets/Animations/signUp.json";
 import { AuthContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
+import { useLocation, useNavigate } from 'react-router';
 
 const Signup = () => {
 
   const { setUser, updateUser, createUser } = use(AuthContext)
   const [errorMessage, setErrorMessage] = useState('')
+  const navigate = useNavigate();
+  const location = useLocation()
 
   const handleSignUp = e => {
     e.preventDefault()
@@ -33,7 +36,7 @@ const Signup = () => {
             setUser({ ...user, displayName: name, photoURL: photoURL })
           }).then(() => {
             toast.success('Account Created Successfully');
-            // navigate(location?.state || '/');
+            navigate(location?.state || '/');
           }).catch(() => {
             setErrorMessage('Profile update failed.');
           });
