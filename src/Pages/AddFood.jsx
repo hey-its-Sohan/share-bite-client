@@ -15,7 +15,7 @@ const AddFood = () => {
     addFood.quantity = parseInt(addFood.quantity);
 
     // send data to database
-    axios.post("http://localhost:3000/add-food", addFood)
+    axios.post("https://sharebite-server-five.vercel.app/add-food", addFood)
       .then(res => {
         if (res.data.insertedId || res.data.acknowledged) {
           Swal.fire({

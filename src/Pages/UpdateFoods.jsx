@@ -17,7 +17,7 @@ const UpdateFoods = () => {
     const updatedPost = Object.fromEntries(formData.entries())
 
     // send data to DB
-    axios.put(`http://localhost:3000/update-food/${foodData._id}`, updatedPost)
+    axios.put(`https://sharebite-server-five.vercel.app/update-food/${foodData._id}`, updatedPost)
       .then(res => {
         if (res.data.modifiedCount) {
           Swal.fire({

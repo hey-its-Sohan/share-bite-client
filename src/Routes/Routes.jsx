@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
         Component: FoodDetails,
         hydrateFallbackElement: <div className='max-w-screen-xl mx-auto text-primary text-center my-[400px]'><span className="loading loading-dots loading-xl"></span></div>,
         loader: async ({ params }) => {
-          const { data } = await axios.get(`http://localhost:3000/food-details/${params.id}`)
+          const { data } = await axios.get(`https://sharebite-server-five.vercel.app/food-details/${params.id}`)
           return data;
         }
       },
@@ -57,7 +57,7 @@ export const router = createBrowserRouter([
         Component: UpdateFoods,
         hydrateFallbackElement: <div className='max-w-screen-xl text-primary mx-auto text-center my-[400px]'><span className="loading loading-dots loading-xl"></span></div>,
         loader: async ({ params }) => {
-          const { data } = await axios.get(`http://localhost:3000/food-details/${params.id}`)
+          const { data } = await axios.get(`https://sharebite-server-five.vercel.app/food-details/${params.id}`)
           return data;
         }
       },

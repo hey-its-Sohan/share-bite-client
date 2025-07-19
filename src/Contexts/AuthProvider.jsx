@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
         try {
           const token = await currentUser.getIdToken();
 
-          await axios.get("http://localhost:3000", {
+          await axios.get("https://sharebite-server-five.vercel.app", {
             headers: {
               Authorization: `Bearer ${token}`
             }

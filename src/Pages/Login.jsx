@@ -27,7 +27,7 @@ const Login = () => {
 
     try {
       setError('');
-      setLoading(true);
+
 
       await signInUser(email, password);
 
@@ -47,8 +47,9 @@ const Login = () => {
   };
 
   const handleGoogleLogin = async () => {
-    setLoading(true);
+
     try {
+      setLoading(true)
       await googleSignIn();
       toast.success('Login Successful!');
       navigate(location?.state || '/');

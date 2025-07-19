@@ -20,7 +20,7 @@ const AvailableFoods = () => {
       };
     }
 
-    axios.get("http://localhost:3000/all-foods", config)
+    axios.get("https://sharebite-server-five.vercel.app/all-foods", config)
       .then(res => {
         setAllFoods(res.data);
         setSearchedFoods(res.data);

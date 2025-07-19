@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 const Featured = () => {
   const [featuredFoods, setFeaturedFoods] = useState([])
-  axios.get("http://localhost:3000/featured-foods")
+  axios.get("https://sharebite-server-five.vercel.app/featured-foods")
     .then(res => { setFeaturedFoods(res.data) })
   return (
     <div className='max-w-screen-xl mx-auto my-10 px-5 lg:px-0'>

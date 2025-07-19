@@ -10,7 +10,7 @@ const FoodRequests = () => {
 
   useEffect(() => {
     if (!user || loading) return;
-    axios.get("http://localhost:3000/my-requests", {
+    axios.get("https://sharebite-server-five.vercel.app/my-requests", {
       headers: {
         Authorization: `Bearer ${user.accessToken}`
       }

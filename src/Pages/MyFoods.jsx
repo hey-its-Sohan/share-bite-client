@@ -13,7 +13,7 @@ const MyFoods = () => {
 
   useEffect(() => {
     if (loading || !user) return;
-    axios.get("http://localhost:3000/my-foods", {
+    axios.get("https://sharebite-server-five.vercel.app/my-foods", {
       headers: {
         Authorization: `Bearer ${user.accessToken}`
       }
@@ -34,7 +34,7 @@ const MyFoods = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/my-foods/${id}`, {
+        axios.delete(`https://sharebite-server-five.vercel.app/my-foods/${id}`, {
           headers: {
             Authorization: `Bearer ${user.accessToken}`
           }

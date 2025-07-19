@@ -20,13 +20,14 @@ const FoodDetails = () => {
       availability: "Requested",
       notes: note
     }
-    axios.post(`http://localhost:3000/requested-food`, requestData, {
+
+    axios.post(`https://sharebite-server-five.vercel.app/requested-food`, requestData, {
       headers: {
         Authorization: `Bearer ${user.accessToken}`
       }
     })
 
-    // axios.patch(`http://localhost:3000/update-availability/${food._id}`, {
+    // axios.patch(`https://sharebite-server-five.vercel.app/update-availability/${food._id}`, {
     //   notes: note,
     //   availability: "Requested",
     // }, {
