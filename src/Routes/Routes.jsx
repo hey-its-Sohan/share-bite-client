@@ -51,8 +51,12 @@ export const router = createBrowserRouter([
         Component: FoodRequests,
       },
       {
-        path: "/update-food",
+        path: "/update-food/:id",
         Component: UpdateFoods,
+        loader: async ({ params }) => {
+          const { data } = await axios.get(`http://localhost:3000/food-details/${params.id}`)
+          return data;
+        }
       },
       {
         path: "/login",
