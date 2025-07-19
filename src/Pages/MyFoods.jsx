@@ -23,7 +23,7 @@ const MyFoods = () => {
       });
   }, [user, loading]);
 
-  const handleDeleteFood = (id) = {
+  const handleDeleteFood = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -34,29 +34,34 @@ const MyFoods = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-
-        fetch(`https://rent-buddy-server-six.vercel.app/details/${id}`, {
-          method: 'DELETE'
+        axios.delete(`http://localhost:3000/my-foods/${id}`, {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`
+          }
         })
-          .then(res => res.json())
-          .then(data => {
-            if (data.deletedCount) {
-              // remainig List
-              const remainigLists = myList.filter(list => list._id !== id)
-              setMyList(remainigLists)
+          .then(res => {
+            if (res.data.deletedCount > 0) {
+              const remainingFoods = myFoods.filter(food => food._id !== id);
+              setMyFoods(remainingFoods);
               Swal.fire({
                 title: "Deleted!",
-                text: "Your file has been deleted.",
+                text: "Your food has been deleted.",
                 icon: "success"
               });
-
-
             }
           })
+          .catch(error => {
+            console.error("Delete failed:", error);
+            Swal.fire({
+              title: "Error!",
+              text: "Failed to delete the food.",
+              icon: "error"
+            });
+          });
       }
-    })
+    });
+  };
 
-  }
 
   return (
     <div className='bg-gray-100'>
