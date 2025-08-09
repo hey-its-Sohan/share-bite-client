@@ -9,7 +9,7 @@ const Footer = () => {
 
         {/* Brand */}
         <div>
-          <img src={logo} alt="ShareBite Logo" className="w-28 mb-4" />
+          <img src={logo} alt="ShareBite Logo" className="w-20 md:w-24 mb-4" />
           <h2 className="text-2xl font-bold text-black">ShareBite</h2>
           <p className="text-sm mt-2 text-gray-500">
             A platform to reduce food waste and share what matters. Together, we can make a difference.

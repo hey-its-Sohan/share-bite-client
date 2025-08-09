@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import banner1 from '../assets/banner1.jpg';
-import banner2 from '../assets/banner2.jpg'; // Optional second image
+import banner1 from '../assets/banner1.webp';
+import banner2 from '../assets/banner2.webp'; // Optional second image
 
 const Banner = () => {
   return (

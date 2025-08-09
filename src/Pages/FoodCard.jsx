@@ -2,15 +2,27 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { MapPin, Clock3, Utensils } from 'lucide-react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const FoodCard = ({ food }) => {
   const { _id, food_name, food_image, quantity, location, expiry } = food;
 
   return (
     <div className="card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition-all">
-      <figure>
-        <img src={food_image} alt={name} className="w-full  h-56 object-cover" />
-      </figure>
+
+      <LazyLoadImage
+        src={food_image}
+        alt={food_name}
+        effect="blur"
+        threshold={100}
+        visibleByDefault={false}
+        className="w-full h-64 object-cover"
+      />
+
+      {/* <figure>
+        <img loading="lazy" src={food_image} alt={name} className="w-full  h-56 object-cover" />
+      </figure> */}
       <div className="card-body space-y-2">
         <h2 className="card-title text-dark text-lg">{food_name}</h2>
         <p className="text-sm text-gray-600 flex items-center gap-1">

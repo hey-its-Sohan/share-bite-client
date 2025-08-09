@@ -19,6 +19,7 @@ const AvailableFoods = () => {
         Authorization: `Bearer ${user.accessToken}`
       };
     }
+    if (loading) return <div className='max-w-screen-xl mx-auto text-center text-primary my-[400px]'><span className="loading loading-dots loading-xl"></span></div>
 
     axios.get("https://sharebite-server-five.vercel.app/all-foods", config)
       .then(res => {
@@ -48,6 +49,8 @@ const AvailableFoods = () => {
   const toggleLayout = () => {
     setIsThreeCol(prev => !prev);
   };
+
+
 
   return (
     <div className='bg-gray-100 min-h-screen'>
