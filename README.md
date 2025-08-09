@@ -1,12 +1,39 @@
-# React + Vite
+# ShareBite (Client)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live URL: https://share-bite-web.netlify.app/
 
-Currently, two official plugins are available:
+## 🧠 Project Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ShareBite is a community-driven food-sharing web application that connects individuals and organizations with excess food to those in need. This client-side app provides a clean and modern UI for users to donate, browse, and request food seamlessly.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Key Features
+
+- 🔐 User Authentication (Firebase)
+- 📋 Add / Update / Delete shared foods
+- 🧾 Track personal food listings (My Foods)
+- 🥡 Browse available food with live status updates
+- 📨 Request food with optional notes
+- 📦 Track all requested food items (My Requests)
+- 🌐 Protected routes and conditional UI
+- 📱 Responsive design with Tailwind + daisyUI
+- 🍽 Featured food section on home page
+- 🖼 Image upload via link and details modal
+
+---
+
+## 📦 Major NPM Packages Used
+
+- **React Router** – Client-side routing
+- **Axios** – For API requests
+- **Firebase** – Authentication
+- **Lucide-React** – Icon set
+- **Framer-Motion** – UI animation
+- **React Toastify** – Toast notifications
+- **SweetAlert2** – Request confirmations
+- **Tailwind CSS** – Utility-first CSS
+- **daisyUI** – Tailwind UI component library
+
+---
+
