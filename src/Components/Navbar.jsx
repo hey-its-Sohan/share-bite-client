@@ -60,6 +60,8 @@ const Navbar = () => {
               }><li className='text-lg '>My Foods</li></NavLink>
               <NavLink to={"/requested-food"} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
               }><li className='text-lg '>My Request</li></NavLink>
+              <NavLink to={"#impact"} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+              }><li className='text-lg '>Impact</li></NavLink>
 
             </ul>
           </div>
