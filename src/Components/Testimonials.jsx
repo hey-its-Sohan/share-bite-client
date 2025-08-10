@@ -24,7 +24,11 @@ const Testimonials = () => {
       <h2 className="text-4xl font-bold  text-dark px-5 lg:px-0 mb-10">What Our Community Says</h2>
       <div className="max-w-screen-xl px-5 lg:px-0 mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((user, index) => (
-          <div key={index} className="bg-white p-6 rounded-xl shadow-md">
+          <div key={index}
+            data-aos="fade-up"
+            data-aos-delay={index * 150}
+            data-aos-duration="600"
+            className="bg-white p-6 rounded-xl shadow-md">
             <div className="flex items-center gap-4 mb-4">
               <img
                 src={user.photo}

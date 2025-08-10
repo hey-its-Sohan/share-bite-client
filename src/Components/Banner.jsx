@@ -42,13 +42,13 @@ const Banner = () => {
         {/* Buttons */}
         <div className="flex flex-wrap text-center mx-auto items-center justify-center gap-4">
           <a
-            href="#share-food"
+            href="/add-food"
             className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg shadow-md transition"
           >
             Share Food
           </a>
           <a
-            href="#request-food"
+            href="/available-foods"
             className="px-6 py-3 border border-white hover:bg-white hover:text-gray-900 font-semibold rounded-lg transition"
           >
             Request Food

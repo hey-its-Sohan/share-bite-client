@@ -34,10 +34,14 @@ const Featured = () => {
       <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4'>
 
         {
-          featuredFoods.map(food => (
+          featuredFoods.map((food, index) => (
             <div key={food._id} >
 
-              <div className="card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition-all">
+              <div
+                data-aos="fade-up"
+                data-aos-delay={index * 150}
+                data-aos-duration="600"
+                className="card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition-all">
 
                 <LazyLoadImage
                   src={food.food_image}

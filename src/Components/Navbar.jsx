@@ -14,13 +14,18 @@ const Navbar = () => {
 
   // Logged-out links (smooth scroll to sections)
   const loggedOutLinks = (
-    <>
+    <div className='flex items-center gap-2'>
       <li
         onClick={() => setActive('home')}
         className={`text-lg ${active === 'home' ? 'border-b-2 border-primary text-primary pb-1 font-bold' : ''}`}
       >
         <a href="/">Home</a>
       </li>
+      <NavLink to={'/available-foods'}>
+        <li
+          onClick={() => setActive('available-foods')}
+          className={`text-lg ${active === 'available-foods' ? 'border-b-2 border-primary text-primary pb-1 font-bold' : ''}`}
+        >Available Foods</li></NavLink>
       <li
         onClick={() => setActive('how-it-works')}
         className={`text-lg ${active === 'how-it-works' ? 'border-b-2 border-primary text-primary pb-1 font-bold' : ''}`}
@@ -45,7 +50,7 @@ const Navbar = () => {
       >
         <a href="#faq">FAQ</a>
       </li>
-    </>
+    </div>
   );
 
   // Logged-in links (routes)
