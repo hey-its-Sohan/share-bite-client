@@ -10,7 +10,7 @@ const stats = [
 
 const Impact = () => {
   return (
-    <section id="impact" className="py-12 scroll-mt-14">
+    <section id="impact" className="py-12 bg-primary/80 scroll-mt-14">
       <div className="max-w-screen-xl  mx-auto px-5 lg:px-0">
         <h2 className="text-4xl font-bold mb-10">
           Our Impact

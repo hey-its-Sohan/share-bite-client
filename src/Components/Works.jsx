@@ -12,12 +12,12 @@ const steps = [
 
 const Works = () => {
   return (
-    <div id="how-it-works" className="bg-primary scroll-mt-14">
+    <div id="how-it-works" className=" scroll-mt-14">
       <div className="max-w-screen-xl mx-auto py-16 px-5 lg:px-0">
-        <h2 className="text-4xl font-bold  text-white mb-10">How It Works</h2>
+        <h2 className="text-4xl font-bold mb-10">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="bg-white shadow-md rounded-xl p-6 text-center">
+            <div key={index} className="bg-white hover:shadow-xl cursor-pointer shadow-md rounded-xl p-6 text-center">
               <div className="text-primary mb-4">{step.icon}</div>
               <h3 className="text-xl font-semibold text-dark mb-2">{step.title}</h3>
               <p className="text-gray-600 text-sm">{step.desc}</p>

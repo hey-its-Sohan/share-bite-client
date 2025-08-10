@@ -4,7 +4,7 @@ import { Facebook, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-700 mt-24 ">
+    <footer className="bg-white text-gray-700  mt-10">
       <div className="max-w-screen-xl mx-auto px-5 lg:px-0 py-2 grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
 
         {/* Brand */}
@@ -20,11 +20,11 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3 text-black">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-primary">Home</a></li>
-            <li><a href="#" className="hover:text-primary">About Us</a></li>
-            <li><a href="#" className="hover:text-primary">Request Food</a></li>
-            <li><a href="#" className="hover:text-primary">Donate</a></li>
-            <li><a href="#" className="hover:text-primary">Contact</a></li>
+            <li><a href="/" className="hover:text-primary">Home</a></li>
+            <li><a href="#how-it-works" className="hover:text-primary">How It Works</a></li>
+            <li><a href="#featured-foods" className="hover:text-primary">Featured Foods</a></li>
+            <li><a href="#impact" className="hover:text-primary">Impact</a></li>
+            <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
           </ul>
         </div>
 

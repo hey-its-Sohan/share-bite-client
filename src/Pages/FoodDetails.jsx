@@ -52,7 +52,7 @@ const FoodDetails = () => {
             />
           </div>
           <div className="flex-1 space-y-2 px-4 mb-2">
-            <h2 className="text-3xl font-semibold text-primary">{food.food_name}</h2>
+            <h2 className="text-3xl font-semibold text-primary mb-3">{food.food_name}</h2>
             <p className='text-lg'><strong>Quantity:</strong> {food.quantity}</p>
             <p className='text-lg'><strong>Location:</strong> {food.location}</p>
             <p className='text-lg'><strong>Expires:</strong> {food.expiry}</p>

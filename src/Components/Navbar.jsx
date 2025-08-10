@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import logo from '../assets/logo1.png';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
@@ -6,6 +6,7 @@ import userProfile from '../assets/userProfile.png';
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
+  const [active, setActive] = useState('home');
 
   const handleSignOut = () => {
     signOutUser().catch(error => console.log(error.message));
@@ -14,22 +15,52 @@ const Navbar = () => {
   // Logged-out links (smooth scroll to sections)
   const loggedOutLinks = (
     <>
-      <a href="/" className="text-lg px-2">Home</a>
-      <a href="#how-it-works" className="text-lg px-2">How It Works</a>
-      <a href="#featured-foods" className="text-lg px-2">Featured Foods</a>
-      <a href="#impact" className="text-lg px-2">Impact</a>
-      <a href="#faq" className="text-lg px-2">FAQ</a>
+      <li
+        onClick={() => setActive('home')}
+        className={`text-lg ${active === 'home' ? 'border-b-2 border-primary text-primary pb-1 font-bold' : ''}`}
+      >
+        <a href="/">Home</a>
+      </li>
+      <li
+        onClick={() => setActive('how-it-works')}
+        className={`text-lg ${active === 'how-it-works' ? 'border-b-2 border-primary text-primary pb-1 font-bold' : ''}`}
+      >
+        <a href="#how-it-works">How It Works</a>
+      </li>
+      <li
+        onClick={() => setActive('featured-foods')}
+        className={`text-lg ${active === 'featured-foods' ? 'border-b-2 border-primary text-primary pb-1 font-bold' : ''}`}
+      >
+        <a href="#featured-foods">Featured Foods</a>
+      </li>
+      <li
+        onClick={() => setActive('impact')}
+        className={`text-lg ${active === 'impact' ? 'border-b-2 border-primary text-primary pb-1 font-bold' : ''}`}
+      >
+        <a href="#impact">Impact</a>
+      </li>
+      <li
+        onClick={() => setActive('faq')}
+        className={`text-lg ${active === 'faq' ? 'border-b-2 border-primary text-primary pb-1 font-bold' : ''}`}
+      >
+        <a href="#faq">FAQ</a>
+      </li>
     </>
   );
 
   // Logged-in links (routes)
   const loggedInLinks = (
     <>
-      <NavLink to="/" className="text-lg px-2">Home</NavLink>
-      <NavLink to="/available-foods" className="text-lg px-2">Available Foods</NavLink>
-      <NavLink to="/add-food" className="text-lg px-2">Add Food</NavLink>
-      <NavLink to="/my-foods" className="text-lg px-2">My Foods</NavLink>
-      <NavLink to="/requested-food" className="text-lg px-2">My Requests</NavLink>
+      <NavLink to={'/'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+      }><li className='text-lg '>Home</li></NavLink>
+      <NavLink to={'/available-foods'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+      }><li className='text-lg '>Available Foods</li></NavLink>
+      <NavLink to={'/add-food'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+      }><li className='text-lg '>Add Food</li></NavLink>
+      <NavLink to={'/my-foods'} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+      }><li className='text-lg '>My Foods</li></NavLink>
+      <NavLink to={"/requested-food"} className={({ isActive }) => isActive ? " border-b-2 border-primary text-primary pb-1 font-bold" : "font-normal"
+      }><li className='text-lg '>My Request</li></NavLink>
 
     </>
   );
