@@ -1,67 +1,63 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import banner1 from '../assets/banner1.webp';
-import banner2 from '../assets/banner2.webp'; // Optional second image
+import React from "react";
 
 const Banner = () => {
   return (
-    <div className="max-w-screen-xl mx-auto px-5 lg:px-0  py-10">
-      <div className="flex flex-col-reverse lg:flex-row items-center ">
-
-        {/* Left: Text Section */}
-        <motion.div
-          className="flex-1 text-center lg:text-left"
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h1 className="text-4xl lg:text-5xl font-bold text-dark mb-4">
-            Share Surplus. Spread Kindness.
-          </h1>
-          <p className="text-dark text-lg max-w-md">
-            Join our food-sharing movement and help reduce waste in your community. One plate at a time, one person at a time.
-          </p>
-          <button className="btn btn-primary mt-6 text-white">Get Started</button>
-        </motion.div>
-
-        {/* Right: Floating Animated Images */}
-        <motion.div
-          className="flex-1 flex justify-center gap-5"
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <motion.img
-            src={banner1}
-            alt="banner1"
-            className="w-64 h-64 object-cover rounded-xl shadow-lg"
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-
-          <motion.img
-            src={banner2}
-            alt="banner2"
-            className="w-48 h-48 object-cover rounded-xl shadow-lg hidden md:block"
-            animate={{
-              y: [0, 10, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 1,
-            }}
-          />
-        </motion.div>
+    <section className="relative bg-gray-900 text-white">
+      {/* Background image with gradient overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1920&auto=format&fit=crop"
+          alt="Food sharing"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
       </div>
-    </div>
+
+      {/* Content */}
+      <div className="relative max-w-screen-xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+
+
+
+        <h1 className="text-3xl text-center sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
+          Share Surplus. <br /> Spread Kindness.
+        </h1>
+        <p className="text-lg text-center sm:text-xl mb-6 text-gray-200">
+          Join thousands of people fighting food waste in Dhaka.
+        </p>
+
+        {/* Stats */}
+
+        <div className="flex flex-wrap mx-auto justify-center  gap-6 mb-8">
+          <div>
+            <p className="text-2xl text-center font-bold">2,350+</p>
+            <p className="text-sm text-center text-gray-300">Meals Shared</p>
+          </div>
+          <div>
+            <p className="text-2xl text-center font-bold">1,200+</p>
+            <p className="text-sm text-center text-gray-300">Families Helped</p>
+          </div>
+        </div>
+
+
+        {/* Buttons */}
+        <div className="flex flex-wrap text-center mx-auto items-center justify-center gap-4">
+          <a
+            href="#share-food"
+            className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg shadow-md transition"
+          >
+            Share Food
+          </a>
+          <a
+            href="#request-food"
+            className="px-6 py-3 border border-white hover:bg-white hover:text-gray-900 font-semibold rounded-lg transition"
+          >
+            Request Food
+          </a>
+        </div>
+      </div>
+
+
+    </section>
   );
 };
 
