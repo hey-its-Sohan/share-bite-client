@@ -6,6 +6,8 @@ import Banner from '../Components/Banner';
 import Featured from '../Components/Featured';
 import Works from '../Components/Works';
 import Testimonials from '../Components/Testimonials';
+import Impact from '../Components/Impact';
+import CTA from '../Components/CTA';
 
 const Home = () => {
   return (
@@ -15,7 +17,9 @@ const Home = () => {
       <Banner></Banner>
       <Featured></Featured>
       <Works></Works>
+      <Impact></Impact>
       <Testimonials></Testimonials>
+      <CTA></CTA>
 
     </div>
   );

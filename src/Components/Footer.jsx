@@ -4,7 +4,7 @@ import { Facebook, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-700 mt-7">
+    <footer className="bg-white text-gray-700 mt-24 ">
       <div className="max-w-screen-xl mx-auto px-5 lg:px-0 py-2 grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
 
         {/* Brand */}

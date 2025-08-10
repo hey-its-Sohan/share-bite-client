@@ -26,8 +26,8 @@ const Featured = () => {
   }
 
   return (
-    <div className='max-w-screen-xl mx-auto my-10 px-5 lg:px-0'>
-      <h1 className='text-4xl lg:text-5xl font-bold text-dark mb-7'>Featured Foods</h1>
+    <div className='max-w-screen-xl mx-auto py-16 px-5 lg:px-0'>
+      <h1 className='text-4xl font-bold text-dark mb-10'>Featured Foods</h1>
       <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4'>
         {
           featuredFoods.map(food => (

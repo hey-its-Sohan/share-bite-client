@@ -14,7 +14,7 @@ const Works = () => {
   return (
     <div className="bg-primary">
       <div className="max-w-screen-xl mx-auto py-16 px-5 lg:px-0">
-        <h2 className="text-4xl lg:text-5xl font-bold  text-white mb-10">How It Works</h2>
+        <h2 className="text-4xl font-bold  text-white mb-10">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="bg-white shadow-md rounded-xl p-6 text-center">
