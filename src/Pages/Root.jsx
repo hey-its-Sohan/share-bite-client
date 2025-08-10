@@ -17,9 +17,11 @@ const Root = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <Outlet></Outlet>
-      <Footer></Footer>
 
+      <div className='mt-16'>
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </div>
     </div>
   );
 };

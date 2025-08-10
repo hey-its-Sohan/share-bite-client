@@ -2,7 +2,7 @@ import React, { use, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const FoodDetails = () => {
@@ -41,8 +41,8 @@ const FoodDetails = () => {
   }
 
   return (
-    <div className='bg-gray-100 py-16'>
-      <div className='w-10/12 md:w-2/3 mx-auto my-20 shadow-md'>
+    <div className='bg-gray-100 py-10'>
+      <div className='w-10/12 md:w-2/3 mx-auto my-18 shadow-md'>
         <div className="bg-white  shadow-md flex items-center flex-col md:flex-row gap-6">
           <div className=' lg:w-2/3'>
             <img
@@ -60,11 +60,19 @@ const FoodDetails = () => {
             <p className="text-gray-600 italic text-lg">{food.notes}</p>
 
             {/* Request Modal Trigger */}
-            {isRequested ? (
-              <button className="btn btn-success mt-4" disabled>Requested</button>
-            ) : (
-              <label htmlFor="request-modal" className="btn btn-primary text-white mt-4">Request Food</label>
-            )}
+            {
+              user ? <div>
+                {isRequested ? (
+                  <button className="btn btn-success mt-4" disabled>Requested</button>
+                ) : (
+                  <label htmlFor="request-modal" className="btn btn-primary text-white mt-4">Request Food</label>
+                )}
+              </div> : <div>
+                <label disabled className="btn btn-primary text-white mt-4">Request Food</label>
+                <p className='text-primary text-sm mt-2'>*Login to request food</p>
+              </div>
+            }
+
 
             {/* Modal */}
             <input type="checkbox" id="request-modal" className="modal-toggle" />

@@ -20,7 +20,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div className="max-w-screen-xl mx-auto py-16 ">
+    <div className="max-w-screen-xl mx-auto py-16 scroll-mt-14">
       <h2 className="text-4xl font-bold  text-dark px-5 lg:px-0 mb-10">What Our Community Says</h2>
       <div className="max-w-screen-xl px-5 lg:px-0 mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((user, index) => (

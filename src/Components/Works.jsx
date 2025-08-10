@@ -12,7 +12,7 @@ const steps = [
 
 const Works = () => {
   return (
-    <div className="bg-primary">
+    <div id="how-it-works" className="bg-primary scroll-mt-14">
       <div className="max-w-screen-xl mx-auto py-16 px-5 lg:px-0">
         <h2 className="text-4xl font-bold  text-white mb-10">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
